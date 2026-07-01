@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: notas-api
+    runtime: python
+    buildCommand: pip install poetry && poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: NOTAS_DATABASE_URL
+        sync: false
+      - key: NOTAS_API_KEY
+        sync: false
+      - key: NOTAS_DEBUG
+        value: "false"
