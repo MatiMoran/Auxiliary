@@ -1,7 +1,7 @@
 .PHONY: dev test migrate migrations shell
 
 dev:
-	uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+	.venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 test:
 	pytest -v --cov=app
